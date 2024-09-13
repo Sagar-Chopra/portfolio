@@ -7,7 +7,7 @@ import './index.css';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 
-const page = ({params}) => {
+const Page = ({params}) => {
   console.log("router", params)
 
   const canvasRef = useRef(null);
@@ -194,4 +194,4 @@ const page = ({params}) => {
   )
 }
 
-export default page
+export default Page
