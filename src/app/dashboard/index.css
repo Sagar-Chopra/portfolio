@@ -135,7 +135,7 @@ body{
 /* HTML: <div class="loader"></div> */
 /* HTML: <div class="loader"></div> */
 .loader {
-  width: 45px;
+  width: 12px;
   aspect-ratio: 1;
   --c: no-repeat linear-gradient(theme("colors.textColor") 0 0);
   background: 
@@ -161,5 +161,27 @@ body{
     color: #4cbf9d;
     letter-spacing: 2vw;
     font-weight: bolder;
+  }
+
+  .name{
+    color: #3cffc5;
+  }
+
+  .soundIcon{
+    top: 3%;
+    transform: translate(-50%, -3%);
+    justify-content: start;
+  }
+
+  .footer-options{
+    font-size: 3vw;
+    color: theme('colors.white');
+    opacity: 0.5;
+  }
+
+  .footer{
+    width: 100%;
+    top: 95%;
+    transform: translate(-50%, -95%);
   }
 }

@@ -1,6 +1,7 @@
 "use client"
 
 import React, { useEffect, useRef, useState } from 'react';
+import Link from 'next/link'
 import * as THREE from 'three';
 import gsap from 'gsap';
 import './index.css';
@@ -127,6 +128,20 @@ const Page = () => {
 
     window.addEventListener("click", backGroundMusic);
 
+    // Pause background music on tab switch
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        if (backSoundRef.current) {
+          backSoundRef.current.pause();
+        }
+      } else {
+        if (backSoundRef.current) {
+          backSoundRef.current.play();
+        }
+      }
+    };
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
 
     // Handle resize
     window.addEventListener('resize', () => {
@@ -150,6 +165,7 @@ const Page = () => {
       window.removeEventListener("mousedown", playGlobeSonnd);
       window.removeEventListener("mouseup", pauseGlobeSound);
       window.removeEventListener("click", backGroundMusic);
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
       renderer.dispose();
     };
   }, []);
@@ -170,7 +186,7 @@ const Page = () => {
         Your browser does not support the audio tag.
       </audio>
       <audio controls preload="true" ref={backSoundRef} className="audio" >
-        <source src="sound/globeSound.mp3" type="audio/mpeg" />
+        <source src="sound/background.mp3" type="audio/mpeg" />
         Your browser does not support the audio tag.
       </audio>
       <div className='soundIcon'>
@@ -182,7 +198,7 @@ const Page = () => {
         <div className='uppercase key'>creative | learner | developer</div>
       </div>
       <div className='text-white absolute z-[2] footer'>
-        <div className='uppercase footer-options'>Work</div>
+        <div className='uppercase footer-options' onClick={(e) => e.stopPropagation()}><Link href="/work">Work</Link></div>
         <div className='uppercase footer-options'>about</div>
         <div className='uppercase footer-options'>Work</div>
         <div className='uppercase footer-options'>about</div>
