@@ -10,9 +10,11 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 
 const Page = () => {
   const canvasRef = useRef(null);
+  const modelRef = useRef(null); // Reference to the 3D model
   const soundRef = useRef();
   const backSoundRef = useRef();
   const [musicLoader, setMusicLoader] = useState();
+  const mouseMoveTimeout = useRef(null);
 
   useEffect(() => {
     const scene = new THREE.Scene();
@@ -31,9 +33,9 @@ const Page = () => {
       'models/oceanEarth.glb',
       (gltf) => {
         const model = gltf.scene;
+        modelRef.current = model
         scene.add(model);
         model.position.set(0.1, 0.1, 0.1);
-        // model.scale.set(30, 30, 30);
         tl.fromTo(model.scale, {z: 0, x: 0, y: 0}, {z: 30, x: 30, y: 30})
       },
       undefined,
@@ -102,6 +104,47 @@ const Page = () => {
     controls.autoRotate = true;
     controls.autoRotateSpeed = 2;
 
+    // Mouse movement handling
+    const mouse = new THREE.Vector2();
+    const targetPosition = new THREE.Vector3();
+
+    const onMouseMove = (event) => {
+      console.log("move")
+      // Convert mouse coordinates to normalized device coordinates (NDC)
+      mouse.x = (event.clientX / sizes.width) * 2 - 1;
+      mouse.y = -(event.clientY / sizes.height) * 2 + 1;
+
+      // Map the mouse position to the 3D space
+      targetPosition.set(mouse.x * 10, mouse.y * 10, 0);
+
+      if (modelRef.current) {
+        // Smooth transition using GSAP
+        gsap.to(modelRef.current.position, {
+          x: targetPosition.x,
+          y: targetPosition.y,
+          duration: 1,
+        });
+      }
+
+      // Clear previous timeout and set a new one
+      if (mouseMoveTimeout.current) {
+        clearTimeout(mouseMoveTimeout.current);
+      }
+      mouseMoveTimeout.current = setTimeout(() => {
+        // Move model to center if no mouse movement
+        if (modelRef.current) {
+          gsap.to(modelRef.current.position, {
+            x: 0,
+            y: 0,
+            duration: 1,
+          });
+        }
+      }, 1000); // 1 second delay before moving back to center
+    };
+
+    window.addEventListener('mousemove', onMouseMove);
+
+
     // Add event listener for double click
     const playGlobeSonnd = () => {
         if (soundRef.current) {
@@ -131,11 +174,13 @@ const Page = () => {
     // Pause background music on tab switch
     const handleVisibilityChange = () => {
       if (document.hidden) {
-        if (backSoundRef.current) {
+        if (backSoundRef.current && !backSoundRef.current.paused) {
+          // Pause the music only if it is playing
           backSoundRef.current.pause();
         }
       } else {
-        if (backSoundRef.current) {
+        if (backSoundRef.current && backSoundRef.current.paused) {
+          // Play the music only if it was previously paused
           backSoundRef.current.play();
         }
       }
@@ -162,6 +207,7 @@ const Page = () => {
 
     // Clean up function
     return () => {
+      window.removeEventListener('mousemove', onMouseMove);
       window.removeEventListener("mousedown", playGlobeSonnd);
       window.removeEventListener("mouseup", pauseGlobeSound);
       window.removeEventListener("click", backGroundMusic);
@@ -176,6 +222,14 @@ const Page = () => {
       backSoundRef.current.pause();
     }
   }
+
+  const handleDownload = (e) => {
+    e.stopPropagation()
+    const link = document.createElement("a");
+    link.href = "/pdf/Sagar-Resume.pdf"; // Path to your PDF file
+    link.download = "Sagar-Resume"; // Name the file when downloading
+    link.click();
+  };
 
   return (
     <div>
@@ -200,7 +254,7 @@ const Page = () => {
       <div className='text-white absolute z-[2] footer'>
         <div className='uppercase footer-options' onClick={(e) => e.stopPropagation()}><Link href="/work">Work</Link></div>
         <div className='uppercase footer-options'>about</div>
-        <div className='uppercase footer-options'>Work</div>
+        <div className='uppercase footer-options' onClick={(e) => handleDownload(e)}>Resume</div>
         <div className='uppercase footer-options'>about</div>
         <div className='uppercase footer-options'>contact</div>
         <div className='uppercase footer-options'>credit</div>

@@ -99,6 +99,7 @@ body{
 .footer-options{
   color: theme('colors.textColor');
   font-size: 1.5vw;
+  cursor: pointer;
 }
 
 .soundIcon{
