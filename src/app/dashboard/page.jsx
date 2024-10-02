@@ -36,7 +36,7 @@ const Page = () => {
         modelRef.current = model
         scene.add(model);
         model.position.set(0.1, 0.1, 0.1);
-        tl.fromTo(model.scale, {z: 0, x: 0, y: 0}, {z: 30, x: 30, y: 30})
+        tl.fromTo(model.scale, {z: 0, x: 0, y: 0}, {z: 25, x: 25, y: 25})
       },
       undefined,
       (error) => {
@@ -47,7 +47,7 @@ const Page = () => {
     // add starts
     function addStart(){
     const geometry = new THREE.SphereGeometry(0.25, 5, 5);
-    const material = new THREE.MeshStandardMaterial({color: '#3d5257'})
+    const material = new THREE.MeshStandardMaterial({color: '#157fc5'})
     const star = new THREE.Mesh(geometry,material);
     const [x,y,z] = Array(3).fill().map(() => THREE.MathUtils.randFloatSpread(60));
     star.position.set(x,y,z)
@@ -58,7 +58,7 @@ const Page = () => {
 
     function addStart(){
     const geometry = new THREE.SphereGeometry(0.25, 10, 10);
-    const material = new THREE.MeshStandardMaterial({color: "#3d5257"})
+    const material = new THREE.MeshStandardMaterial({color: "#157fc5"})
     const star = new THREE.Mesh(geometry,material);
     const [x,y,z] = Array(3).fill().map(() => THREE.MathUtils.randFloatSpread(100));
     star.position.set(x,y,z)
@@ -247,15 +247,16 @@ const Page = () => {
         {musicLoader &&
         <div className="loader" onClick={(e) => stopBackGroundMusic(e)}></div>}
       </div>
+      <div className='top-bar bar'></div>
       <div className='text-white absolute z-[2] tittle'>
         <div className='uppercase name'>SAGAR CHOPRA</div>
         <div className='uppercase key'>creative | learner | developer</div>
       </div>
+      <div className='bottom-bar bar'></div>
       <div className='text-white absolute z-[2] footer'>
         <div className='uppercase footer-options' onClick={(e) => e.stopPropagation()}><Link href="/work">Work</Link></div>
-        <div className='uppercase footer-options'>about</div>
         <div className='uppercase footer-options' onClick={(e) => handleDownload(e)}>Resume</div>
-        <div className='uppercase footer-options'>about</div>
+        <div className='uppercase footer-options' onClick={(e) => e.stopPropagation()}><Link href="/about">About</Link></div>
         <div className='uppercase footer-options'>contact</div>
         <div className='uppercase footer-options'>credit</div>
       </div>

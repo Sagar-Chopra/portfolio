@@ -52,6 +52,7 @@ body{
   padding: 0;
   margin: 0;
   position: relative;
+  user-select: none;
 }
 
 .key{
@@ -60,16 +61,17 @@ body{
   text-align: center;
   pointer-events: none;
   font-weight: bold;
-  /* font-size: 5vw; */
   letter-spacing: 2.4vw;
   color: theme('colors.textColor');
   color: theme('colors.textColor');
-  color: hsla(192, 18%, 49%, 1);
+  /* color: hsla(192, 18%, 49%, 1); */
+  color: rgba(255, 255, 255, .5);
+  user-select: none;
   /* text-shadow: 0px 6px 10px #3d5257; */
   filter: drop-shadow(0px 6px 10px #3d5257);
   text-indent: 2.4vw;
   opacity: 1;
-  font-weight: 100;
+  /* font-weight: 100; */
   position: relative;
   top: 0;
   left: auto;
@@ -83,16 +85,16 @@ body{
 
 .footer{
   width: 100%;
-  top: 90%;
+  top: 85%;
   left: 50%;
   z-index: 100;
   position: absolute;
-  transform: translate(-50%, -90%);
+  transform: translate(-50%, -85%);
   text-align: center;
   margin: 0;
   padding: 0;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   color: theme('colors.textColor');
 }
 
@@ -100,15 +102,16 @@ body{
   color: theme('colors.textColor');
   font-size: 1.5vw;
   cursor: pointer;
+  padding: 0 4vw;
 }
 
 .soundIcon{
   width: 100%;
-  top: 10%;
+  top: 5%;
   left: 50%;
-  z-index: 100;
+  z-index: 1001;
   position: absolute;
-  transform: translate(-50%, -10%);
+  transform: translate(-50%, -5%);
   text-align: center;
   margin: 0;
   padding: 0;
@@ -129,7 +132,27 @@ body{
   margin: 0;
   padding: 0;
   background-color: theme('colors.black');
-  opacity: 0.4;
+  opacity: 0.7;
+}
+
+.top-bar.bar{
+  height: 10vh;
+  width: 100vw;
+  background: black;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  transition: .3s ease-in-out;
+}
+
+.bottom-bar.bar{
+  height: 10vh;
+  width: 100vw;
+  background: black;
+  position: fixed;
+  z-index: 1000;
+  bottom: 0;
+  transition: .3s ease-in-out;
 }
 
 
