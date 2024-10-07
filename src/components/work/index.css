@@ -1,0 +1,109 @@
+.title {
+  font-size: 8vw;
+  text-transform: uppercase;
+  text-align: center;
+  pointer-events: none;
+  /* font-size: 5vw; */
+  letter-spacing: 2.6vw;
+  color: theme("colors.textColor");
+  color: hsla(192, 18%, 49%, 1);
+  /* text-shadow: 0px 6px 10px #3d5257; */
+  filter: drop-shadow(0px 6px 10px #3d5257);
+  text-indent: 2.6vw;
+  opacity: 1;
+  font-weight: 100;
+  position: relative;
+  top: 0;
+  left: auto;
+  transform: none;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  user-select: none;
+  white-space: nowrap;
+  font-size: 28vh;
+  font-family: futura-pt;
+  color: #fff;
+  text-transform: uppercase;
+  margin: 0;
+  pointer-events: none;
+  /* margin: 0 auto; */
+  width: 100vw;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.1);
+  letter-spacing: 2vh;
+  font-weight: 100;
+}
+
+.subtitle {
+  user-select: none;
+  position: absolute;
+  white-space: nowrap;
+  pointer-events: none;
+  top: 20vh;
+  margin: 0 auto;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.8vw;
+  font-size: 1.2vw;
+  text-align: center;
+  width: 100%;
+}
+
+.workOuterContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.workInnerContainer {
+  margin: 2.5vw;
+  position: relative;
+  width: 42.5vw;
+  height: 22vw;
+  transition: transform 0.3s ease;
+}
+
+.workInnerContainer:hover .titles {
+  opacity: 1;
+}
+
+.workImg {
+  width: 42.5vw;
+  object-fit: contain;
+  height: 22vw;
+  transition: 0.5s opacity;
+  opacity: 0.7;
+  -webkit-transform: translateZ(0);
+}
+
+.titles {
+  position: absolute;
+  text-transform: uppercase;
+  opacity: 0;
+  transition: 0.3s all;
+  width: 100%;
+  height: 6vw;
+  padding: 2vw;
+  padding-top: 1vw;
+  background: rgba(0, 0, 0, 0.7);
+  bottom: -1px;
+}
+
+.name {
+  color: grey;
+  text-transform: uppercase;
+  margin-bottom: 0.5vw;
+  transition: 0.1s all;
+  font-size: 1vw;
+  font-family: futura-pt;
+}
+
+.aboutWork {
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: 0.1s all;
+  font-size: 1.4vw;
+  font-family: futura-pt;
+}

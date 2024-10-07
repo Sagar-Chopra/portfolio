@@ -19,101 +19,6 @@ body{
     display: none;
 }
 
-.tittle{
-  width: 100%;
-  top: 50%;
-  left: 50%;
-  z-index: 100;
-  position: absolute;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  margin: 0;
-  padding: 0
-}
-
-.tittleDiv{
-  position: relative;
-}
-
-.title {
-  font-size: 8vw;
-  text-transform: uppercase;
-  text-align: center;
-  pointer-events: none;
-  /* font-size: 5vw; */
-  letter-spacing: 2.6vw;
-  color: theme('colors.textColor');
-  color: hsla(192, 18%, 49%, 1);
-  /* text-shadow: 0px 6px 10px #3d5257; */
-  filter: drop-shadow(0px 6px 10px #3d5257);
-  text-indent: 2.6vw;
-  opacity: 1;
-  font-weight: 100;
-  position: relative;
-  top: 0;
-  left: auto;
-  transform: none;
-  padding: 0;
-  margin: 0;
-  position: relative;
-  user-select: none;
-  white-space: nowrap;
-  font-size: 28vh;
-  font-family: futura-pt;
-  color: #fff;
-  text-transform: uppercase;
-  margin: 0;
-  pointer-events: none;
-  /* margin: 0 auto; */
-  width: 100vw;
-  text-align: center;
-  color: rgba(255, 255, 255, .1);
-  letter-spacing: 2vh;
-  font-weight: 100;
-}
-
-.subtitle{
-  user-select: none;
-  position: absolute;
-  white-space: nowrap;
-  pointer-events: none;
-  top: 20vh;
-  margin: 0 auto;
-  color: rgba(255, 255, 255, .5);
-  text-transform: uppercase;
-  letter-spacing: 0.8vw;
-  font-size: 1.2vw;
-  text-align: center;
-  width: 100%;
-}
-
-.key{
-  font-size: 1vw;
-  text-transform: uppercase;
-  text-align: center;
-  pointer-events: none;
-  font-weight: bold;
-  /* font-size: 5vw; */
-  letter-spacing: 2.4vw;
-  color: theme('colors.textColor');
-  color: theme('colors.textColor');
-  color: hsla(192, 18%, 49%, 1);
-  /* text-shadow: 0px 6px 10px #3d5257; */
-  filter: drop-shadow(0px 6px 10px #3d5257);
-  text-indent: 2.4vw;
-  opacity: 1;
-  font-weight: 100;
-  position: relative;
-  top: 0;
-  left: auto;
-  transform: none;
-  padding: 0;
-  margin: 0;
-  position: relative;
-
-
-}
-
 .header{
   opacity: 0;
   position: fixed;
@@ -203,44 +108,7 @@ body{
   padding-bottom: 10vw;
 }
 
-.aboutImgDiv{
-  display: grid;
-  justify-content: center;
-}
 
-.aboutImg{
-  object-fit: cover;
-  object-position: center center;
-  filter: grayscale(80%);
-  height: 40vw;
-  width: 85vw;
-  opacity: 1;
-}
-
-.textDiv{
-  width: 90vw;
-  opacity: 1;
-  font-size: 1.4vw;
-  color: #fff
-}
-
-.textBio{
-  text-align: center;
-  pointer-events: none;
-  margin-top: 15vh;
-  margin-bottom: 5vh;
-  color: white;
-  text-transform: uppercase;
-  letter-spacing: .5vw;
-  font-size: 1vw;
-  color: #3d5257;
-  width: 100vw;
-}
-
-.about{
-  width: 100vw;
-  margin-left: 5vw;
-}
 
 
 

@@ -14,6 +14,7 @@ const Page = () => {
   const soundRef = useRef();
   const backSoundRef = useRef();
   const [musicLoader, setMusicLoader] = useState();
+  const [open, setOpen] = useState(false);
   const mouseMoveTimeout = useRef(null);
 
   useEffect(() => {
@@ -223,6 +224,12 @@ const Page = () => {
     }
   }
 
+  const handleOpen = (e) => {
+    e.stopPropagation()
+    setOpen(true)
+  };
+  const handleClose = () => setOpen(false);
+
   const handleDownload = (e) => {
     e.stopPropagation()
     const link = document.createElement("a");
@@ -255,12 +262,27 @@ const Page = () => {
       <div className='bottom-bar bar'></div>
       <div className='text-white absolute z-[2] footer'>
         <div className='uppercase footer-options' onClick={(e) => e.stopPropagation()}><Link href="/work">Work</Link></div>
-        <div className='uppercase footer-options' onClick={(e) => handleDownload(e)}>Resume</div>
+        <div className='uppercase footer-options' onClick={(e) => handleOpen(e)}>Resume</div>
         <div className='uppercase footer-options' onClick={(e) => e.stopPropagation()}><Link href="/about">About</Link></div>
         <div className='uppercase footer-options'>contact</div>
         <div className='uppercase footer-options'>credit</div>
       </div>
-    </div>
+      {open && (
+      <div className="modal-overlay" onClick={handleClose}>
+        <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+          <button className="close-btn" onClick={handleClose}>
+            &times;
+          </button>
+          <iframe
+            src="/pdf/Sagar-Resume.pdf"
+            width="100%"
+            height="100%"
+            title="PDF Viewer"
+          />
+        </div>
+      </div>
+    )}
+    </div> 
   );
 };
 

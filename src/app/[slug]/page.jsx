@@ -6,6 +6,9 @@ import gsap from "gsap";
 import "./index.css";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
+import About from "@/components/about/About";
+import Work from "@/components/work/Work";
+import Link from "next/link";
 
 const Page = ({ params }) => {
   console.log("router", params);
@@ -182,31 +185,18 @@ const Page = ({ params }) => {
         )}
       </div>
       <div className="contentDiv">
-        <div className="tittleDiv">
-          <div className="uppercase title">{params.slug}</div>
-          <div className="subtitle">
-            Bio | Awards | Companies | Services | Contact
-          </div>
-        </div>
-        <div className="aboutImgDiv">
-          <img src="images/profile-pic.jpg" alt="" className="aboutImg" />
-        </div>
-        <div className="textDiv">
-          <div className="textBio">[ Bio ]</div>
-          <p className="about">
-          Hi, i am sagar chopra and i have 3 years of IT experience i am working as frontend developer
-          </p>
-        </div>
+        {params.slug === "about" && <About params={params} />}
+        {params.slug === "work" && <Work params={params} />} 
       </div>
       <div className="text-white absolute z-[2] header">
         <div className="headerMenu">
           <ul className="menuItems">
-            <div className="uppercase header-options">Work</div>
-            <div className="uppercase header-options">| about</div>
-            <div className="uppercase header-options">| Work</div>
-            <div className="uppercase header-options">| about</div>
-            <div className="uppercase header-options">| contact</div>
-            <div className="uppercase header-options">| credit</div>
+            <div className="uppercase header-options" onClick={(e) => e.stopPropagation()}><Link href="/dashboard">Home</Link></div>
+            <div className="uppercase header-options" onClick={(e) => e.stopPropagation()}><Link href="/work">| Work</Link></div>
+            <div className="uppercase header-options" onClick={(e) => e.stopPropagation()}><Link href="/work">| Resume</Link></div>
+            <div className="uppercase header-options" onClick={(e) => e.stopPropagation()}><Link href="/about">| about</Link></div>
+            <div className="uppercase header-options" onClick={(e) => e.stopPropagation()}><Link href="/work">| contact</Link></div>
+            <div className="uppercase header-options" onClick={(e) => e.stopPropagation()}><Link href="/work">| credit</Link></div>
           </ul>
         </div>
       </div>
