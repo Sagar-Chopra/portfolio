@@ -63,9 +63,9 @@ body{
 
 .soundIcon{
   width: 100%;
-  top: 10%;
+  top: 3%;
   left: 50%;
-  z-index: 100;
+  z-index: 999999;
   position: absolute;
   transform: translate(-50%, -10%);
   text-align: center;
@@ -110,12 +110,10 @@ body{
 
 
 
-
-
 /* HTML: <div class="loader"></div> */
 /* HTML: <div class="loader"></div> */
 .loader {
-  width: 45px;
+  width: 12px;
   aspect-ratio: 1;
   --c: no-repeat linear-gradient(theme("colors.textColor") 0 0);
   background: 
@@ -133,6 +131,7 @@ body{
   80% {background-size: 20% 100%,20% 100%,20% 80% }
   100%{background-size: 20% 100%,20% 100%,20% 100%}
 }
+  
      
 
 @media (max-width: 480px) {

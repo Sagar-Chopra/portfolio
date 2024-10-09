@@ -266,3 +266,10 @@ iframe {
     display: none;
   }
 }
+
+@media (max-width: 768px) {
+  .footer-options{
+    font-size: 3vw;
+  }
+}
+

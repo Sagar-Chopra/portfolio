@@ -11,7 +11,7 @@ const About = ({params}) => {
           </div>
         </div>
         <div className="aboutImgDiv">
-          <img src="images/profile-pic.jpg" alt="" className="aboutImg" />
+          <img src="images/profile-pic.jpg" alt="Profile" className="aboutImg" />
         </div>
         <div className="textDiv">
           <div className="textBio">[ Bio ]</div>

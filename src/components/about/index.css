@@ -130,3 +130,23 @@
   opacity: 1;
   margin-right: 10px;
 }
+
+@media (max-width: 768px) {
+
+}
+
+@media (max-width: 600px) {
+  .about{
+    font-size: 2vh;
+  }
+
+  .textBio{
+    margin-bottom: 3vh;
+    margin-top: 7vh;
+    font-size: 2vw;
+  }
+
+  .skillDiv{
+    padding-bottom: 10vh;
+  }
+}

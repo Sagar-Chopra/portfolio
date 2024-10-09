@@ -5,10 +5,12 @@ import Link from 'next/link'
 import * as THREE from 'three';
 import gsap from 'gsap';
 import './index.css';
+import { useRouter } from 'next/navigation'; 
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 
 const Page = () => {
+  const router = useRouter();
   const canvasRef = useRef(null);
   const modelRef = useRef(null); // Reference to the 3D model
   const soundRef = useRef();
@@ -238,6 +240,23 @@ const Page = () => {
     link.click();
   };
 
+  const handleModelAnimation = (path) => {
+    if (modelRef.current) {
+      // Animation on model when link is clicked
+      gsap.to(modelRef.current.scale, {
+        x: 30,
+        y: 30,
+        z: 30,
+        duration: 1,
+        ease: "power2.inOut",
+        onComplete: () => {
+          // Navigate to the new page after animation completes
+          router.push(path);
+        },
+      });
+    }
+  };
+
   return (
     <div>
       <canvas ref={canvasRef} className="webgl" ></canvas>
@@ -261,11 +280,11 @@ const Page = () => {
       </div>
       <div className='bottom-bar bar'></div>
       <div className='text-white absolute z-[2] footer'>
-        <div className='uppercase footer-options' onClick={(e) => e.stopPropagation()}><Link href="/work">Work</Link></div>
+        <div className='uppercase footer-options' onClick={(e) => {e.stopPropagation(); handleModelAnimation('/work'); }}><Link href="/work">Work</Link></div>
         <div className='uppercase footer-options' onClick={(e) => handleOpen(e)}>Resume</div>
         <div className='uppercase footer-options' onClick={(e) => e.stopPropagation()}><Link href="/about">About</Link></div>
-        <div className='uppercase footer-options'>contact</div>
-        <div className='uppercase footer-options'>credit</div>
+        <div className='uppercase footer-options' >contact</div>
+        <div className='uppercase footer-options' onClick={(e) => e.stopPropagation()}><Link href="/credit">credit</Link></div>
       </div>
       {open && (
       <div className="modal-overlay" onClick={handleClose}>

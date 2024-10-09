@@ -6,27 +6,38 @@ const workArray = [
   {
     id: "1",
     img: "images/work/xwife.svg",
-    background: "none"
+    background: "none",
+    title: "xWife"
   },
   {
     id: "2",
     img: "images/work/artofficial.svg",
-    background: "white"
+    background: "white",
+    title: "Artofficial"
   },
   {
     id: "3",
     img: "images/work/jungle.svg",
-    background: "black"
+    background: "black",
+    title: "jungle"
   },
   {
     id: "4",
     img: "images/work/robodoge.svg",
-    background: "black"
+    background: "black",
+    title: "robodoge"
   },
   {
     id: "5",
     img: "images/work/whitelabel.svg",
-    background: "black"
+    background: "black",
+    title: "whitelabel"
+  },
+  {
+    id: "6",
+    img: "images/work/wedo.svg",
+    background: "white",
+    title: "wedolaundry"
   }
 ]
 
@@ -49,10 +60,10 @@ const Work = ({ params }) => {
             scale={1}
             transitionSpeed={400}
           >
-            <img src={data.img} alt="" className="workImg" style={{background: data.background}} />
+            <img src={data.img} alt="Project" className="workImg" style={{background: data.background}} />
             <div className="titles">
-              <p className="name">ArtOffici</p>
-              <p className="aboutWork">ArtOfficial</p>
+              <p className="projectName">ArtOffici</p>
+              <p className="aboutWork">{data.title}</p>
             </div>
           </Tilt>
         ))}

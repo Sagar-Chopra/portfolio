@@ -9,6 +9,7 @@ import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import About from "@/components/about/About";
 import Work from "@/components/work/Work";
 import Link from "next/link";
+import Credits from "@/components/credits/credits";
 
 const Page = ({ params }) => {
   console.log("router", params);
@@ -162,11 +163,11 @@ const Page = ({ params }) => {
   }, []);
 
   const stopBackGroundMusic = (e) => {
-    e.stopPropagation();
+    e.stopPropagation()
     if (backSoundRef.current) {
       backSoundRef.current.pause();
     }
-  };
+  }
   return (
     <div>
       <canvas ref={canvasRef} className="webgl"></canvas>
@@ -187,6 +188,7 @@ const Page = ({ params }) => {
       <div className="contentDiv">
         {params.slug === "about" && <About params={params} />}
         {params.slug === "work" && <Work params={params} />} 
+        {params.slug === "credit" && <Credits params={params} />} 
       </div>
       <div className="text-white absolute z-[2] header">
         <div className="headerMenu">
