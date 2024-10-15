@@ -13,7 +13,7 @@ const Credits = ({ params }) => {
       <div className="creditContianer">
         <div className="creditInnerContainer">
           <img src="next.svg" alt="next" className="next" />
-          <p className="descrip">The React Framework for the Web. Used by some of the world's largest companies, Next.js enables you to create high-quality web applications with the power of React components.</p>
+          <p className="descrip">The React Framework for the Web. Used by some of the world&apos;s largest companies, Next.js enables you to create high-quality web applications with the power of React components.</p>
         </div>
 
         <div className="sketchfab-embed-wrapper">
