@@ -1,0 +1,21 @@
+.creditContianer{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: auto;
+}
+
+.creditInnerContainer{
+    width: 45vw;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.next{
+    width: 45vw;
+}
+
+.descrip{
+    color: #FFFFFF;
+}
