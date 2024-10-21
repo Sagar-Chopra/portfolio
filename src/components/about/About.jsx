@@ -1,13 +1,46 @@
 import React from 'react'
 import './index.css'
 
+const skillArray = [
+  {
+    id: "1",
+    img: "images/skills/html.svg",
+    title: "HTML"
+  },
+  {
+    id: "2",
+    img: "images/skills/css.svg",
+    title: "CSS"
+  },
+  {
+    id: "3",
+    img: "images/skills/js.svg",
+    title: "JS"
+  },
+  {
+    id: "4",
+    img: "images/skills/react.svg",
+    title: "React"
+  },
+  {
+    id: "5",
+    img: "images/skills/redux.svg",
+    title: "Redux"
+  },
+  {
+    id: "6",
+    img: "images/skills/typescript.svg",
+    title: "Typescript"
+  },
+]
+
 const About = ({params}) => {
   return (
     <>
         <div className="tittleDiv">
           <div className="uppercase title">{params.slug}</div>
           <div className="subtitle">
-            Bio | Awards | Companies | Services | Contact
+            Bio | Companies | Services | Contact
           </div>
         </div>
         <div className="aboutImgDiv">
@@ -27,26 +60,12 @@ const About = ({params}) => {
         <div className="skillDiv">
           <div className="textBio">[ Skills ]</div>
           <div className="skillBlock">
-            <div className="skillContainer">
-              <img src="images/skills/html.svg" alt="" className="skillIcons" />
-              <h2>HTML</h2>
-            </div>
-            <div className="skillContainer">
-              <img src="images/skills/html.svg" alt="" className="skillIcons" />
-              <h2>HTML</h2>
-            </div>
-            <div className="skillContainer">
-              <img src="images/skills/html.svg" alt="" className="skillIcons" />
-              <h2>HTML</h2>
-            </div>
-            <div className="skillContainer">
-              <img src="images/skills/html.svg" alt="" className="skillIcons" />
-              <h2>HTML</h2>
-            </div>
-            <div className="skillContainer">
-              <img src="images/skills/html.svg" alt="" className="skillIcons" />
-              <h2>HTML</h2>
-            </div>
+            {skillArray.map((data, index) => (
+              <div className="skillContainer" key={index}>
+                <img src={data.img} alt="" className="skillIcons" />
+                <h2>{data.title}</h2>
+              </div>
+            ))}
           </div>
         </div>
     </>
