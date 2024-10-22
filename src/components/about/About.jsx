@@ -1,5 +1,6 @@
 import React from 'react'
 import './index.css'
+import Link from 'next/link'
 
 const skillArray = [
   {
@@ -66,6 +67,15 @@ const About = ({params}) => {
                 <h2>{data.title}</h2>
               </div>
             ))}
+          </div>
+        </div>
+        <div className='socialDiv'>
+          <div className="textBio">[ Social | contact | connect ]</div>
+          <div className='flex gap-12 cursor-pointer'>
+          <img src="images/social/email.png" alt="" className="socialIcon" />
+            <Link href="www.linkedin.com/in/sagar-chopra-a689671b6" target={"_blank"}>
+              <img src="images/social/linked-in.png" alt="" className="socialIcon" />
+            </Link>
           </div>
         </div>
     </>

@@ -36,11 +36,9 @@ body{
   text-transform: uppercase;
   text-align: center;
   pointer-events: none;
-  /* font-size: 5vw; */
   letter-spacing: 2.6vw;
-  color: theme('colors.textColor');
+  /* color: theme('colors.textColor'); */
   color: hsla(192, 18%, 49%, 1);
-  /* text-shadow: 0px 6px 10px #3d5257; */
   filter: drop-shadow(0px 6px 10px #3d5257);
   text-indent: 2.6vw;
   opacity: 1;
@@ -64,14 +62,11 @@ body{
   letter-spacing: 2.4vw;
   color: theme('colors.textColor');
   color: theme('colors.textColor');
-  /* color: hsla(192, 18%, 49%, 1); */
   color: rgba(255, 255, 255, .5);
   user-select: none;
-  /* text-shadow: 0px 6px 10px #3d5257; */
   filter: drop-shadow(0px 6px 10px #3d5257);
   text-indent: 2.4vw;
   opacity: 1;
-  /* font-weight: 100; */
   position: relative;
   top: 0;
   left: auto;
@@ -79,8 +74,6 @@ body{
   padding: 0;
   margin: 0;
   position: relative;
-
-
 }
 
 .footer{

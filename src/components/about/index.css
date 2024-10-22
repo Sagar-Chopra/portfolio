@@ -1,18 +1,11 @@
-
-
-
-
-
 .title {
   font-size: 8vw;
   text-transform: uppercase;
   text-align: center;
   pointer-events: none;
-  /* font-size: 5vw; */
   letter-spacing: 2.6vw;
   color: theme('colors.textColor');
   color: hsla(192, 18%, 49%, 1);
-  /* text-shadow: 0px 6px 10px #3d5257; */
   filter: drop-shadow(0px 6px 10px #3d5257);
   text-indent: 2.6vw;
   opacity: 1;
@@ -32,7 +25,6 @@
   text-transform: uppercase;
   margin: 0;
   pointer-events: none;
-  /* margin: 0 auto; */
   width: 100vw;
   text-align: center;
   color: rgba(255, 255, 255, .1);
@@ -88,7 +80,8 @@
   text-transform: uppercase;
   letter-spacing: .5vw;
   font-size: 1vw;
-  color: #3d5257;
+  color: #5e858f;
+  font-size: 16px;
   width: 100vw;
 }
 
@@ -129,6 +122,22 @@
   width: 20px;
   opacity: 1;
   margin-right: 10px;
+}
+
+.socialIcon{
+  width: 3vw;
+  min-width: 50px;
+  height: auto;
+  opacity: 0.7;
+}
+
+.socialIcon:hover {
+  opacity: 1;
+}
+
+.socialDiv{
+  display: grid;
+  place-items: center;
 }
 
 @media (max-width: 768px) {

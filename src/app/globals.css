@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'futura-pt';
+  src: url('./fonts/FuturaPT-Light.woff') format('woff'), 
+       url('./fonts/FuturaPT-Light.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 *{
   padding: 0;
   margin: 0;
@@ -10,6 +18,7 @@
 
 body{
   background-color: #000000;
+  font-family: 'futura-pt', sans-serif;
 }
 
 ::-webkit-scrollbar {
