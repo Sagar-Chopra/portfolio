@@ -45,8 +45,8 @@ const Credits = ({ params }) => {
       <div className="creditContianer">
         <div className="creditInnerContainer">
           <p className="descrip mb-8">
-            This portfolio wouldn't be possible without the incredible tools and
-            technologies that powered its creation. Here's a special thanks to
+            This portfolio wouldn&apos;t be possible without the incredible tools and
+            technologies that powered its creation. Here&apos;s a special thanks to
             all the resources that made it happen!
           </p>
           <img src="next.svg" alt="next" className="next mb-8" />
