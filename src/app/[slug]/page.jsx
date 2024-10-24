@@ -108,7 +108,7 @@ const Page = ({ params }) => {
     controls.enablePan = false;
     controls.enableZoom = false;
     controls.autoRotate = true;
-    controls.autoRotateSpeed = 2;
+    controls.autoRotateSpeed = 0.5;
 
     // Add event listener for double click
     const playGlobeSonnd = () => {
@@ -136,6 +136,23 @@ const Page = ({ params }) => {
 
     window.addEventListener("click", backGroundMusic);
 
+    // Pause background music on tab switch
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        if (backSoundRef.current && !backSoundRef.current.paused) {
+          // Pause the music only if it is playing
+          backSoundRef.current.pause();
+        }
+      } else {
+        if (backSoundRef.current && backSoundRef.current.paused) {
+          // Play the music only if it was previously paused
+          backSoundRef.current.play();
+        }
+      }
+    };
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+
     // Handle resize
     window.addEventListener("resize", () => {
       sizes.width = window.innerWidth;
@@ -158,6 +175,7 @@ const Page = ({ params }) => {
       window.removeEventListener("mousedown", playGlobeSonnd);
       window.removeEventListener("mouseup", pauseGlobeSound);
       window.removeEventListener("click", backGroundMusic);
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
       renderer.dispose();
     };
   }, []);

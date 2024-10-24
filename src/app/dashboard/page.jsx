@@ -16,6 +16,7 @@ const Page = () => {
   const soundRef = useRef();
   const backSoundRef = useRef();
   const [musicLoader, setMusicLoader] = useState();
+  const [pauseLoader, setPauseLoader] = useState();
   const [open, setOpen] = useState(false);
   const mouseMoveTimeout = useRef(null);
 
@@ -168,6 +169,7 @@ const Page = () => {
     const backGroundMusic = () => {
       if (backSoundRef.current) {
         setMusicLoader(true);
+        setPauseLoader(false)
         backSoundRef.current.play();
       }
     }
@@ -221,6 +223,8 @@ const Page = () => {
 
   const stopBackGroundMusic = (e) => {
     e.stopPropagation()
+    setPauseLoader(true)
+    setMusicLoader(false)
     if (backSoundRef.current) {
       backSoundRef.current.pause();
     }
@@ -271,7 +275,9 @@ const Page = () => {
       </audio>
       <div className='soundIcon'>
         {musicLoader &&
-        <div className="loader" onClick={(e) => stopBackGroundMusic(e)}></div>}
+          <div className="loader" onClick={(e) => stopBackGroundMusic(e)}></div> 
+        }
+        {pauseLoader && <div className="paused"></div>}
       </div>
       <div className='top-bar bar'></div>
       <div className='text-white absolute z-[2] tittle'>

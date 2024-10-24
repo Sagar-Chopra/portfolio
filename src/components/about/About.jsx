@@ -72,10 +72,12 @@ const About = ({params}) => {
         <div className='socialDiv'>
           <div className="textBio">[ Social | contact | connect ]</div>
           <div className='flex gap-12 cursor-pointer'>
-          <img src="images/social/email.png" alt="" className="socialIcon" />
-            <Link href="www.linkedin.com/in/sagar-chopra-a689671b6" target={"_blank"}>
+            <a href="mailto:sagarchopra271@gmail.com">
+              <img src="images/social/email.png" alt="" className="socialIcon" />
+            </a>
+            <a href="https://www.linkedin.com/in/sagar-chopra-a689671b6" target={"_blank"} rel="noopener noreferrer">
               <img src="images/social/linked-in.png" alt="" className="socialIcon" />
-            </Link>
+            </a>
           </div>
         </div>
     </>
