@@ -108,10 +108,20 @@ body{
   padding-bottom: 10vw;
 }
 
+.close-btn-slug {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
 
+.close-btn-slug:hover{
+  background: none;
+}
 
-/* HTML: <div class="loader"></div> */
-/* HTML: <div class="loader"></div> */
 .loader {
   width: 12px;
   aspect-ratio: 1;
@@ -131,6 +141,19 @@ body{
   80% {background-size: 20% 100%,20% 100%,20% 80% }
   100%{background-size: 20% 100%,20% 100%,20% 100%}
 }
+
+.paused {
+  width: 12px;
+  aspect-ratio: 1;
+  --c: no-repeat linear-gradient(theme("colors.textColor") 0 0);
+  background: 
+    var(--c) 0% 100%,   /* Left bar */
+    var(--c) 50% 100%,  /* Middle bar */
+    var(--c) 100% 100%; /* Right bar */
+  background-size: 20% 20%, 20% 20%, 20% 20%; /* Fixed size for all bars */
+  cursor: pointer;
+  transition: background-size 0.5s ease; /* Optional smooth effect on resize */
+}
   
      
 
@@ -140,5 +163,11 @@ body{
     color: #4cbf9d;
     letter-spacing: 2vw;
     font-weight: bolder;
+  }
+
+  .soundIcon{
+    top: 3%;
+    transform: translate(-50%, -3%);
+    justify-content: start;
   }
 }

@@ -158,7 +158,7 @@ const Credits = ({ params }) => {
           <div className="assetOrigin">[ pixabay ]</div>
 
           <div className="custom-audio-player">
-            <button onClick={(e) => togglePlayPause1(e)}>
+            <button className="audioConsole" onClick={(e) => togglePlayPause1(e)}>
               {isPlaying1 ? "Pause" : "Play"}
             </button>
             <audio ref={audioRef1} preload="true">
@@ -168,7 +168,7 @@ const Credits = ({ params }) => {
           </div>
 
           <div className="custom-audio-player">
-            <button onClick={(e) => togglePlayPause2(e)}>
+            <button className="audioConsole" onClick={(e) => togglePlayPause2(e)}>
               {isPlaying2 ? "Pause" : "Play"}
             </button>
             <audio ref={audioRef2} preload="true">

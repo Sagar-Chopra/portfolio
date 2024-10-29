@@ -18,6 +18,8 @@ const Page = ({ params }) => {
   const soundRef = useRef();
   const backSoundRef = useRef();
   const [musicLoader, setMusicLoader] = useState();
+  const [pauseLoader, setPauseLoader] = useState();
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     const scene = new THREE.Scene();
@@ -130,6 +132,7 @@ const Page = ({ params }) => {
     const backGroundMusic = () => {
       if (backSoundRef.current) {
         setMusicLoader(true);
+        setPauseLoader(false)
         backSoundRef.current.play();
       }
     };
@@ -182,10 +185,19 @@ const Page = ({ params }) => {
 
   const stopBackGroundMusic = (e) => {
     e.stopPropagation()
+    setPauseLoader(true)
+    setMusicLoader(false)
     if (backSoundRef.current) {
       backSoundRef.current.pause();
     }
   }
+
+  const handleOpen = (e) => {
+    e.stopPropagation()
+    setOpen(true)
+  };
+  const handleClose = () => setOpen(false);
+
   return (
     <div>
       <canvas ref={canvasRef} className="webgl"></canvas>
@@ -202,6 +214,7 @@ const Page = ({ params }) => {
         {musicLoader && (
           <div className="loader" onClick={(e) => stopBackGroundMusic(e)}></div>
         )}
+        {pauseLoader && <div className="paused"></div>}
       </div>
       <div className="contentDiv">
         {params.slug === "about" && <About params={params} />}
@@ -213,13 +226,28 @@ const Page = ({ params }) => {
           <ul className="menuItems">
             <div className="uppercase header-options" onClick={(e) => e.stopPropagation()}><Link href="/dashboard">Home</Link></div>
             <div className="uppercase header-options" onClick={(e) => e.stopPropagation()}><Link href="/work">| Work</Link></div>
-            <div className="uppercase header-options" onClick={(e) => e.stopPropagation()}><Link href="/work">| Resume</Link></div>
+            <div className="uppercase header-options" onClick={(e) => handleOpen(e)}>| Resume</div>
             <div className="uppercase header-options" onClick={(e) => e.stopPropagation()}><Link href="/about">| about</Link></div>
-            <div className="uppercase header-options" onClick={(e) => e.stopPropagation()}><Link href="/work">| contact</Link></div>
-            <div className="uppercase header-options" onClick={(e) => e.stopPropagation()}><Link href="/work">| credit</Link></div>
+            {/* <div className="uppercase header-options" onClick={(e) => e.stopPropagation()}><Link href="/work">| contact</Link></div> */}
+            <div className="uppercase header-options" onClick={(e) => e.stopPropagation()}><Link href="/credit">| credit</Link></div>
           </ul>
         </div>
       </div>
+      {open && (
+      <div className="modal-overlay" onClick={handleClose}>
+        <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+          <button className="close-btn-slug" onClick={handleClose}>
+            &times;
+          </button>
+          <iframe
+            src="/pdf/Sagar-Frontend.pdf"
+            width="100%"
+            height="100%"
+            title="PDF Viewer"
+          />
+        </div>
+      </div>
+    )}
     </div>
   );
 };

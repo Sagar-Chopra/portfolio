@@ -58,7 +58,7 @@
   margin-bottom: 10px;
 }
 
-button {
+.audioConsole {
   background-color: #ff6b6b;
   color: white;
   border: none;
@@ -68,7 +68,7 @@ button {
   margin-right: 15px;
 }
 
-button:hover {
+.audioConsole:hover {
   background-color: #e55a5a;
 }
 

@@ -187,6 +187,7 @@ const Page = () => {
         if (backSoundRef.current && backSoundRef.current.paused) {
           // Play the music only if it was previously paused
           backSoundRef.current.play();
+          // setMusicLoader(true)
         }
       }
     };
@@ -289,7 +290,7 @@ const Page = () => {
         <div className='uppercase footer-options' onClick={(e) => {e.stopPropagation(); handleModelAnimation('/work'); }}><Link href="/work">Work</Link></div>
         <div className='uppercase footer-options' onClick={(e) => handleOpen(e)}>Resume</div>
         <div className='uppercase footer-options' onClick={(e) => e.stopPropagation()}><Link href="/about">About</Link></div>
-        <div className='uppercase footer-options' >contact</div>
+        {/* <div className='uppercase footer-options' >contact</div> */}
         <div className='uppercase footer-options' onClick={(e) => e.stopPropagation()}><Link href="/credit">credit</Link></div>
       </div>
       {open && (
@@ -299,7 +300,7 @@ const Page = () => {
             &times;
           </button>
           <iframe
-            src="/pdf/Sagar-Resume.pdf"
+            src="/pdf/Sagar-Frontend.pdf"
             width="100%"
             height="100%"
             title="PDF Viewer"
