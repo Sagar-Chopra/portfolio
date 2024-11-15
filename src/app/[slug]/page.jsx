@@ -19,6 +19,7 @@ const Page = ({ params }) => {
   const backSoundRef = useRef();
   const [musicLoader, setMusicLoader] = useState();
   const [pauseLoader, setPauseLoader] = useState();
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -210,11 +211,15 @@ const Page = ({ params }) => {
         <source src="sound/background.mp3" type="audio/mpeg" />
         Your browser does not support the audio tag.
       </audio>
-      <div className="soundIcon">
+      <div className="soundIconSlug">
         {musicLoader && (
           <div className="loader" onClick={(e) => stopBackGroundMusic(e)}></div>
         )}
         {pauseLoader && <div className="paused"></div>}
+        <div className={`menu-button ${showMobileMenu ? "active" : ""}`}onClick={(e) => {stopBackGroundMusic(e); setShowMobileMenu(!showMobileMenu)}}>
+          <span></span>
+          <span></span>
+        </div>
       </div>
       <div className="contentDiv">
         {params.slug === "about" && <About params={params} />}
@@ -233,6 +238,14 @@ const Page = ({ params }) => {
           </ul>
         </div>
       </div>
+        <div className={`menu ${showMobileMenu ? "show" : ""}`}>
+          <ul className="menu-items">
+            <li className="menu-item" onClick={(e) => e.stopPropagation()}><Link href="/dashboard">Home</Link></li> 
+            <li className="menu-item" onClick={(e) => e.stopPropagation()}><Link href="/work">Work</Link></li> 
+            <li className="menu-item" onClick={(e) => e.stopPropagation()}><Link href="/about">about</Link></li> 
+            <li className="menu-item" onClick={(e) => e.stopPropagation()}><Link href="/credit">credit</Link></li> 
+          </ul>
+        </div>
       {open && (
       <div className="modal-overlay" onClick={handleClose}>
         <div className="modal-content" onClick={(e) => e.stopPropagation()}>

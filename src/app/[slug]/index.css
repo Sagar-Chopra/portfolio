@@ -61,7 +61,7 @@ body{
   padding-right: 6.5px;
 }
 
-.soundIcon{
+.soundIconSlug{
   width: 100%;
   top: 3%;
   left: 50%;
@@ -154,8 +154,112 @@ body{
   cursor: pointer;
   transition: background-size 0.5s ease; /* Optional smooth effect on resize */
 }
+
+
+/* mobile nav */
+
+.menu.show {
+  opacity: 1;
+  z-index: 1000;
+  display: block;
+}
+
+.menu {
+  opacity: 0;
+  width: 100vw;
+  height: 100%;
+  left: 50%;
+  top: 50%;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  padding: 0;
+  margin: 0;
+  transition: 1s all;
+  z-index: 0;
+  background: #000;
+}
+
+.menu-button{
+  width: 30px;
+  height: 60px;
+  position: absolute;
+  top: 5px;
+  right: 30px;
+  cursor: pointer;
+  z-index: 1000;
+  display: none;
+}
+
+.menu-button span:nth-of-type(1) {
+  top: 0vw;
+}
+
+.menu-button.active span:nth-of-type(1) {
+  -webkit-transform: translateY(1vw) rotate(-45deg);
+  transform: translateY(1vw) rotate(-45deg);
+}
+
+.menu-button span:nth-of-type(2) {
+  top: 2vw;
+}
+
+.menu-button.active span:nth-of-type(2) {
+  -webkit-transform: translateY(-1vw) rotate(45deg);
+  transform: translateY(-1vw) rotate(45deg);
+}
+.menu-button span {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: .2vw;
+  min-height: 1px;
+  background-color: #fff;
+  opacity: 1;
+  border-radius: 0vw;
+}
+.menu-button, .menu-button span {
+  display: inline-block;
+  transition: all .3s;
+  box-sizing: border-box;
+}
   
-     
+.menu .menu-items {
+  left: 50%;
+  top: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  padding: 0;
+  margin: 0;
+  margin-top: 0vw;
+}  
+
+.menu .menu-item {
+  cursor: pointer;
+  list-style: none;
+  opacity: .5;
+  text-align: center;
+  font-size: 9vw;
+  line-height: 10vh;
+  text-transform: uppercase;
+  color: white;
+}
+
+@media (max-width: 768px) {
+
+  .soundIconSlug{
+    top: 3%;
+    transform: translate(-50%, -3%);
+    justify-content: start;
+  }
+  .headerMenu{
+    display: none;
+  }
+
+  .menu-button{
+    display: block;
+    opacity: .5;
+  }
+}
 
 @media (max-width: 480px) {
   .key{
@@ -163,11 +267,5 @@ body{
     color: #4cbf9d;
     letter-spacing: 2vw;
     font-weight: bolder;
-  }
-
-  .soundIcon{
-    top: 3%;
-    transform: translate(-50%, -3%);
-    justify-content: start;
   }
 }
